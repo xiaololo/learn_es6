@@ -32,7 +32,15 @@
 
   // #### 数组解构赋值
   // 1.赋值元素可以是任意可遍历的对象
-  // 赋值的元素不仅是数组，它可以是任意可遍历的对象
+  // let [a, b, c] = "abc" // ["a", "b", "c"]
+  // let [one, two, three] = new Set([1, 2, 3])
+  // console.log(a, b, c,one, two, three) //a b c 1 2 3
+
+  // 2. 左边的变量
+  // 被赋值的变量还可以是对象的属性，不局限于单纯的变量。
+  let user = {firstName:"",secondName:""}
+  [user.firstName, user.secondName] = 'Kobe Bryant'.split(' ')
+  console.log(user.firstName, user.secondName) // Kobe Bryant
 
 
   </script>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="static/favicon.ico" />
+  <title>ES</title>
+</head>
+
+<body>
+  <h1>1-新的声明方式</h1>
+  ## let声明方式
+  使用let声明的变量：
+  不属于顶层对象window
+  不允许重复声明
+  不存在变量提升
+  暂时性死区
+  块级作用域
+  --------------------------------------------------
+
+  ## Const声明方式
+  定义：（它定义的是常量，在用 const 定义变量后，我们就不能修改它了，对变量的修改会抛出异常。）
+
+  使用let声明的变量：
+  不属于顶层对象window
+  不允许重复声明
+  不存在变量提升
+  暂时性死区
+  块级作用域
+  
+  特点：
+  1、const 声明的变量必须进行初始化
+  2、const 实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。
+
+  3、如何让对象或者数组这种引用数据类型也不被改变呢？
+  Object.freeze(obj) //Object.freeze() 只是浅层冻结，只会对最近一层的对象进行冻结，并不会对深层对象冻结。
+
+  --------------------------------------------------
+  ## ES6 声明变量的六种方法：
+  ES5 只有两种声明变量的方法：var命令和function命令。
+  ES6除了添加let和const命令，
+  另外两种声明变量的方法：import命令和class命令。
+  <script>
+    // #### let声明方式
+    // 1. let 声明的全局变量不是全局对象window的属性
+    // var VS Let
+
+    // var a = 5
+    // console.log(window.a) // 5 
+    // // -------------
+    // let b = 4
+    // console.log(window.b) // undefined
+
+    // var 声明的全局变量是 window 的属性，是可以通过 window. 变量名 的方式访问的,
+
+    // 2. 用let定义变量不允许重复声明
+
+    // var VS Let
+    // var a=2
+    // var a=3
+    // console.log(a) //3
+
+    // let b=2
+    // let b=3
+    // console.log(b) //Identifier 'b' has already been declared
+
+    // 用var定义变量允许重复声明
+
+    // 3.let声明的变量不存在变量提升
+    // var VS Let
+    // console.log(a) //undefined
+    // var a=6
+
+    // console.log(b)// Cannot access 'b' before initialization 在初始化之前无法访问'b'
+    // let b=6
+
+    // var 声明的变量存在变量提升
+
+    // 4.let声明的变量具有暂时性死区
+    // 只要块级作用域内存在 let 命令，它所声明的变量就绑定在了这个区域，不再受外部的影响。
+    // var a = 5
+    // if (true) {
+    //   a = 6
+    //   let a
+    // } // Cannot access 'a' before initialization 在初始化之前无法访问'b'
+    // 存在全局变量a,块级作用域又声明了局部变量a,导致后者绑定这个块级作用域，所以在let声明变量前，对 a 赋值会报错。
+
+    // 5.let 声明的变量拥有块级作用域
+    // {
+    //   let a = 5
+    // }
+    // console.log(a) // undefined
+
+    // 实例：
+    // for (let i = 0 i < 3 i++) {
+    //   setTimeout(function() {
+    //       console.log(i)
+    //   })
+    // } //babel 把这段代码转化成了闭包的形式
+
+
+
+    // #### Const声明方式
+    // 它定义的是常量，在用 const 定义变量后，我们就不能修改它了，对变量的修改会抛出异常。
+    // 特点：
+    // 1、const 声明的变量必须进行初始化
+    // const a // Missing initializer in const declaration const声明中缺少初始化式
+
+    // 2、const 实际上保证的并不是变量的值不得改动，而是变量指向的那个内存地址所保存的数据不得改动。
+
+    // 3、如何让对象或者数组这种引用数据类型也不被改变呢？
+    // Object.freeze(obj)
+    // 注意 Object.freeze() 只是浅层冻结，只会对最近一层的对象进行冻结，并不会对深层对象冻结。
+
+
+    // 使用const声明的常量：
+    // 不属于顶层对象window
+    // 不允许重复声明
+    // 不存在变量提升
+    // 暂时性死区
+    // 块级作用域
+
+
+  </script>
+</body>
+
+</html>
